@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GA Result</title>
+</head>
+<body>
+    <h1>Best Sequence Found</h1>
+    <p><strong>Sequence:</strong> {{ sequence }}</p>
+    <p><strong>Affinity:</strong> {{ affinity|round(4) }}</p>
+    <p><strong>Score (abs diff from target):</strong> {{ score|round(4) }}</p>
+    <a href="{{ url_for('index') }}">Run Again</a>
+</body>
+</html>

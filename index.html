@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Genetic Algorithm for TFBS Sequences</title>
+</head>
+<body>
+    <h1>Upload PFM and Set Parameters</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li style="color: red;">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <form method="POST" enctype="multipart/form-data">
+        <label for="pfm_file">PFM File (text file with 4 lines of frequencies):</label><br>
+        <input type="file" id="pfm_file" name="pfm_file" accept=".txt" required><br><br>
+        
+        <label for="target">Target Affinity:</label><br>
+        <input type="number" id="target" name="target" step="0.01" required><br><br>
+        
+        <label for="population_size">Population Size (default: 100):</label><br>
+        <input type="number" id="population_size" name="population_size" min="1"><br><br>
+        
+        <label for="elite_prop">Elite Proportion (0-1, default: 0.1):</label><br>
+        <input type="number" id="elite_prop" name="elite_prop" step="0.01" min="0" max="1"><br><br>
+        
+        <label for="generations">Generations (default: 100):</label><br>
+        <input type="number" id="generations" name="generations" min="1"><br><br>
+        
+        <label for="mutation_size">Mutation Size (default: 0.1):</label><br>
+        <input type="number" id="mutation_size" name="mutation_size" step="0.01" min="0"><br><br>
+        
+        <input type="submit" value="Run GA">
+    </form>
+</body>
+</html>
